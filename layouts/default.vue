@@ -6,8 +6,8 @@
   </div>
 </template>
 
-<style>
-html {
+<style lang="postcss" scoped>
+/* html {
   font-family:
     'Source Sans Pro',
     -apple-system,
@@ -27,8 +27,18 @@ html {
 }
 
 .main-container{
-  padding: 0 10vw;
+  padding: 0 14.5vw;
+} */
+
+.main-container{
+  @apply
+  px-4
+  sm:px-12
 }
-
-
+*{
+  @apply
+  p-0
+  m-0
+  box-border
+}
 </style>

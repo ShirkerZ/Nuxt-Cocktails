@@ -94,11 +94,14 @@ export const mutations = {
 
 export const actions = {
 
-  fetchCocktails: (context) => {
+  fetchCocktails: (context, search = $nuxt.context.query.s) => {
+    if(search === undefined || search === null){
+      search = ""
+    } 
     context.commit('resetLoaded')
     setTimeout(() => {
       fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${context.state.searchText}`
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`
       )
         .then((res) => res.json())
         .then(data => context.commit('updateCocktails', data.drinks))

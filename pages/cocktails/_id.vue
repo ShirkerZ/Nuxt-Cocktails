@@ -12,12 +12,14 @@
         </div>
 
         <h1>{{ details.data.strDrink }}</h1>
-        
+
         <div class="instructions">
           <h2>Instructions:</h2>
           <ul v-if="details.data.strInstructions !== undefined">
             <li
-              v-for="(instruction, index) in details.data.strInstructions.split('.')"
+              v-for="(instruction, index) in details.data.strInstructions.split(
+                '.'
+              )"
               :key="index"
             >
               <span> {{ instruction }} </span>
@@ -78,3 +80,83 @@ export default {
   },
 };
 </script>
+
+<style lang="postcss" scoped>
+.details-container {
+  @apply grid
+  grid-cols-2
+}
+.main-image {
+  @apply h-4/5;
+}
+.info {
+  @apply flex
+  flex-col
+  justify-around
+  text-left
+  p-16
+  h-4/5;
+}
+.links {
+  @apply flex
+  items-center;
+}
+p {
+  @apply mr-4;
+}
+h1 {
+  @apply text-5xl
+  font-bold;
+}
+.instructions {
+  @apply my-8;
+}
+h2{
+  @apply
+  text-2xl
+}
+.instructions ul {
+  @apply 
+  list-none
+  flex
+  flex-col
+  text-left
+  p-0;
+}
+.instructions ul li {
+  @apply my-4;
+}
+.glass h2 {
+  @apply
+  my-8
+}
+.ingredients-container{
+  @apply
+  w-full
+  my-8
+  grid
+  grid-cols-2
+  justify-center
+}
+.ingredient{
+  @apply
+  w-48
+  my-4
+  justify-self-center
+}
+.ingredient h3{
+  @apply
+  my-4
+  text-center
+}
+.ingredient img{
+  @apply
+  w-48
+}
+.other{
+  @apply
+  col-start-1
+  col-end-3
+
+}
+</style>
